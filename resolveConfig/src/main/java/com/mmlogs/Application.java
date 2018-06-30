@@ -1,3 +1,5 @@
+package com.mmlogs;
+
 import com.esotericsoftware.yamlbeans.YamlReader;
 import com.mmlogs.bean.ConfigBean;
 
@@ -14,8 +16,10 @@ public class Application {
     public static void main(String[] args) throws Exception {
 
 
-        YamlReader reader = new YamlReader(new FileReader(Application.class.getClassLoader().getResource("config.yml").getPath()));
-        ConfigBean contact = reader.read(ConfigBean.class);
-        System.out.println(contact.toString());
+        System.out.println("哈哈哈哈哈哈");
+
+//        YamlReader reader = new YamlReader(new FileReader(Application.class.getClassLoader().getResource("config.yml").getPath()));
+//        ConfigBean contact = reader.read(ConfigBean.class);
+//        System.out.println(contact.toString());
     }
 }

@@ -1,63 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>java-study-demo</artifactId>
-        <groupId>com.mmlogs</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
+	<groupId>com.mmlogs</groupId>
+	<artifactId>run-shell</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-    <version>1.0-SNAPSHOT</version>
-    <modelVersion>4.0.0</modelVersion>
+	<name>run-shell</name>
+	<description>Demo project for Spring Boot</description>
 
-    <name>com.mmlogs</name>
-    <packaging>jar</packaging>
-    <artifactId>resolveConfig</artifactId>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.3.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
 
-    <properties>
-        <profile.build.sourceEncoding>UTF-8</profile.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
         <deploy.dir>target/dest</deploy.dir>
-    </properties>
+	</properties>
 
-    <profiles>
-        <profile>
-            <id>local</id>
-            <properties>
-                <package.environment>config/local</package.environment>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-    </profiles>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.10</version>
-            <scope>provided</scope>
-        </dependency>
+	<build>
 
-
-        <dependency>
-            <groupId>com.github.sanjusoftware</groupId>
-            <artifactId>yamlbeans</artifactId>
-            <version>1.11</version>
-        </dependency>
-    </dependencies>
-
-
-    <build>
-        <finalName>resolve-config</finalName>
+        <finalName>run-shell</finalName>
         <sourceDirectory>src/main/java</sourceDirectory>
 
-        <plugins>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
             <!-- 配置编译依赖插件 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -87,7 +78,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.mmlogs.Application</mainClass>
+                            <mainClass>com.mmlogs.runshell.RunShellApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -212,19 +203,9 @@
                     </execution>
                 </executions>
             </plugin>
-        </plugins>
+		</plugins>
 
-        <!--<resources>-->
-            <!--<resource>-->
-                <!--<directory>src/main/resources/${package.environment}</directory>-->
-                <!--<filtering>true</filtering>-->
-            <!--</resource>-->
-            <!--<resource>-->
-                <!--<directory>src/main/resources</directory>-->
-                <!--<excludes>-->
-                    <!--<exclude>**/local/*.*</exclude>-->
-                <!--</excludes>-->
-            <!--</resource>-->
-        <!--</resources>-->
-    </build>
+	</build>
+
+
 </project>
