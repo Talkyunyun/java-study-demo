@@ -16,6 +16,6 @@ public class HomeController {
     @GetMapping("/say")
     public String say() {
 
-        return "可视对讲分开打飞机";
+        return "测试demo";
     }
 }
