@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>run-shell</module>
+        <module>netty-tcp-demo</module>
     </modules>
 
 
