@@ -1,7 +1,12 @@
 #!/bin/bash
 ##
 ## java项目运行脚本
-## @Author: Gene.yang
+##
+## @Author : Gene Yang <talkyunyun@126.com>
+## @Date   : 2018/07/16
+## @Version: v1.0.0
+## @Link   : https://github.com/Talkyunyun
+##
 ##
 ## 使用案例：
 ## ./run.sh start|stop|restart|status
@@ -48,7 +53,7 @@ function start() {
     echo -e "Service is starting up."
 
     ## 运行项目
-    nohup java $G_RUN_JAVA_OPTION -classpath $G_CONF_DIR:$G_JARS $MAIN_CLASS >$G_LOG_DIR/nohup 2>&1 &
+    nohup java $G_RUN_JAVA_OPTION -classpath $G_CONF_DIR:$G_JARS $MAIN_CLASS > /dev/null 2>$G_LOG_DIR/stdout.log &
 
     sleep 5
     echo -e "Service startup successful."

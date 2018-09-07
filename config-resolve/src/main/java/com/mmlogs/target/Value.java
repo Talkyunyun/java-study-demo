@@ -14,5 +14,5 @@ import java.lang.annotation.*;
 @Documented
 public @interface Value {
 
-    String value() default "ddd";
+    String value();
 }

@@ -41,7 +41,7 @@ public class TcpServer extends Thread {
                 protected void initChannel(SocketChannel ch) throws Exception {
                     ChannelPipeline pipeline = ch.pipeline();
 
-                    pipeline.addLast("idleStateHandler", new IdleStateHandler(1, 2, 3, TimeUnit.SECONDS));
+                    pipeline.addLast("idleStateHandler", new IdleStateHandler(5, 5, 5, TimeUnit.SECONDS));
                     pipeline.addLast(new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 0, 4, 0, 4));
                     pipeline.addLast("decoder", new TcpDataDecoder());
                     pipeline.addLast("fileLength", new LengthFieldPrepender(4));
